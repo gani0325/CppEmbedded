@@ -1,8 +1,9 @@
 #include <iostream>
+// 헤더 사용하기
+#include "add.h"
 
 using namespace std;
 
-int add(int a, int b);			// forward declaration
 int subtract(int a, int b);		// forward declaration
 
 int main()
