@@ -49,5 +49,13 @@ int main()
 			cout << i << endl;
 		}
 	}
+
+	// 중첩 for 문
+	// for 문 안에 또다른 for 문이 존재 
+	for (int i = 1; i < 10; i++) {
+		for (int j = 1; j < 10; j++) {
+			cout << i << " * " << j << " = " << (i * j) << endl;
+		}
+	}
 	return 0;
 }
