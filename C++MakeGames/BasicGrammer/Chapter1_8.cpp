@@ -15,8 +15,10 @@ enum NUM
 	NUM_0,	// 아무것도 부여하지 않을 경우 0부터 1씩 차례로 값 부여
 	NUM_1,
 	NUM_2,
-	NUM_3
+	NUM_3,
 };
+
+#define NUM_4	4
 
 int main()
 {
@@ -33,16 +35,16 @@ int main()
 	cin >> iNumber;
 
 	switch (iNumber) {
-	case 1:		// iNumber 값이 무엇인가에 따라 실행되는 case 구문 결정
+	case NUM_1:		// iNumber 값이 무엇인가에 따라 실행되는 case 구문 결정
 		cout << "입력한 숫자는 1" << endl;
 		break;	// break 만나면 switch 문 빠져나간다
-	case 2:
+	case NUM_2:
 		cout << "입력한 숫자는 2" << endl;
 		// break 없을 경우, 바로 아래 있는 case 구문 강제 실행
-	case 3:
+	case NUM_3:
 		cout << "입력한 숫자는 3" << endl;
 		break;
-	case 4:
+	case NUM_4:
 		cout << "입력한 숫자는 4" << endl;
 		break;
 	default:	// case 로 지정하지 않은 경우 실행된다
