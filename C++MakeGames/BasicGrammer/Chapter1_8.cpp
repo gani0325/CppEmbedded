@@ -51,5 +51,15 @@ int main()
 		cout << "그 외 숫자입니당" << endl;
 		break;
 	}
+
+	// 열거체 타입의 변수 선언 (무조건 4btye 차지)
+	// 열거체를 이용해서 선언한 변수는 값의 표현 범위가 열거체에 나열된 값들 안에서 선택 사용
+	NUM		eNum = (NUM)10;
+
+	// sizeof(타입 or 변수) 를 하게 되면 해당 타입 혹은 변수의 메모리 크기를 구해줌
+	cout << sizeof(NUM) << endl;
+	// typeid(타입 or 변수).name() typeid 안에 들어간 타입 혹은 변수의 타입을 문자열로 반환해줌
+	cout << typeid(eNum).name() << endl;
+	cout << eNum << endl;
 	return 0;
 }
