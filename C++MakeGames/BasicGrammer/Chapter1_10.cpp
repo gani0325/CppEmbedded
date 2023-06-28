@@ -15,10 +15,10 @@ int main()
 	: 선언하고 값을 초기화하지 않을 경우 쓰레기 값이 들어감!
 	*/
 
-	int iArrary[10];
+	// 중괄호를 대입할 경우 모든 인덱스를 0으로 초기화
+	int iArrary[10] = {};
 	iArrary[1] = 1234;
-	
-	cout << iArrary[1] << endl;
+
 	cout << iArrary[5] << endl;
 
 	return 0;
