@@ -21,5 +21,10 @@ int main()
 
 	cout << iArrary[5] << endl;
 
+	// 배열 개수를 2개 시정하면 이차원 배열
+	// 2차원 배열의 개수는 앞의 수 * 뒤의 수
+	int iArray2[10][10];
+	int iArray3{ {1, 2, 3}, {4, 5, 6};
+
 	return 0;
 }
