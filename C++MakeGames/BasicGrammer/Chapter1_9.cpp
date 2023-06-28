@@ -5,41 +5,12 @@ using namespace std;
 
 int main()
 {
-	// 별찍기
-	for (int i = 0; i < 5; i++) {
-		for (int j = 0; j < i + 1; j++) {
-			cout << "*";
+	// 2단부터 9단까지 구구단
+	for (int i = 2; i < 10; i++) {
+		cout << i << "구구단" << endl;
+		for (int j = 1; j < 10; j++) {
+			cout << i << " * " << j << " = " << (i * j) << endl;
 		}
-		cout << endl;
-	}
-	
-	cout << endl;
-
-	// 거꾸로 별찍기
-	for (int i = 0; i < 5; i++) {
-		for (int j = 0; j < 5 - i; j++) {
-			cout << "*";
-		}
-		cout << endl;
-	}
-
-	// 삼각형 별 찍기
-	// 공백		별
-		//3		1
-		//2		3
-		//1		5
-		//0		7
-	for (int i = 0; i < 4; i++) {
-		// 공백을 위한 문
-		for (int j = 0; j < 3 - i; j++) {
-			cout << " ";
-		}
-		// *을 위한 문
-		for (int j = 0; j < i * 2 + 1; j++) {
-			cout << "*";
-		}
-		cout << endl;
-	}
-	
+	}	
 	return 0;
 }
