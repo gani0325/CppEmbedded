@@ -6,17 +6,20 @@ using namespace std;
 int main()
 {
 	/*
-	do while : 반복문의 종류
-	do {} while(조건식)
-	while 은 처음 진입시 조건식을 체크하지만
-	do while 은 처음 한번은 무조건 동작이 되고, 그 후에는 조건식을 체크해서 true 경우 동작
+	배열
+	변수타입 배열명[개수];
+	: 여러 개의 변수를 한번에 생성해줄 수 있는 기능
+	: 배열은 연속된 메모리 블럭에 공간이 할당됨
+	: 인덱스를 이용해서 원하는 부분에 접근하여 값 저장함
+	: 인덱스는 0부터 n-1
+	: 선언하고 값을 초기화하지 않을 경우 쓰레기 값이 들어감!
 	*/
 
-	int iNumber = 0;
-
-	do {
-		cout << iNumber << endl;
-	} while (iNumber > 0);
+	int iArrary[10];
+	iArrary[1] = 1234;
 	
+	cout << iArrary[1] << endl;
+	cout << iArrary[5] << endl;
+
 	return 0;
 }
