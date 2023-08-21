@@ -8,10 +8,12 @@
 //}
 
 // #2. 상수와 자료형
-void main()
+int main()
 {	
 	// 문자 상수
 	char ch = 'A';
+	char *aa = "Hello world";
+	printf("%s \n", aa);
 
 	// 정수 상수
 	int x = 1;
@@ -19,12 +21,14 @@ void main()
 	char ch2 = '1';
 
 	// 실수 상수
+	int memory = 123;
 	double dblData = 123.45;
 	float flData = 123.45f;
 
 	// sizeof : 피연산자를 저장하는 데 필요한 메모리의 크기를 바이트 단위로 계산
 	printf("%d \n", sizeof(dblData));
 	printf("%d \n", sizeof(flData));
+	printf("%x \n", &flData);
 
 	// 문자열 상수
 	char* pszData = "ABC";		// * :  주소가 저장되는 포인터 변수
