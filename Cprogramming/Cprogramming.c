@@ -1,46 +1,33 @@
 ﻿// <stdio.h> : 핵심 입력과 출력 함수들을 정의
 #include <stdio.h>
 
-// #1. Hello world
-//int main()
-//{
-//    printf("Hello World!\n");
-//}
+// #4. 단순 대입 연산자
+int main(void)
+{
+    // 메모리의 주소를 저장 (변수 성향의 문자열, 값 변환 가능)
+    char* szName[3];
+    szName[0] = "HelloWorld";
+    szName[1] = "C Programming";
+    szName[2] = "Studying";
 
-// #2. 상수와 자료형
-int main()
-{	
-	// 문자 상수
-	char ch = 'A';
-	char *aa = "Hello world";
-	printf("%s \n", aa);
+    for (int i = 0; i < 3; i++)
+    {
+        printf("szName[%d] -> %s\n", i, szName[i]);
+        printf("szName[%d] -> %d\n", i, &szName[i]);
+    }
 
-	// 정수 상수
-	int x = 1;
-	int y = -1;
-	char ch2 = '1';
+    // char형 배열에 각각의 문자가 그대로 저장 (상수 성향의 문자열, 값 변환 불가능)
+    char szName2[3];
+    printf("szName2 -> %s\n", szName2);
+    printf("szName2 -> %d\n", &szName2);
 
-	// 실수 상수
-	int memory = 123;
-	double dblData = 123.45;
-	float flData = 123.45f;
+    char szName3[3];
+    szName3[0] = 'a';
+    szName3[1] = 'b';
+    szName3[2] = NULL;
 
-	// sizeof : 피연산자를 저장하는 데 필요한 메모리의 크기를 바이트 단위로 계산
-	printf("%d \n", sizeof(dblData));
-	printf("%d \n", sizeof(flData));
-	printf("%x \n", &flData);
+    printf("%s", szName3);
+    printf("%c", szName3[1]);
 
-	// 문자열 상수
-	char* pszData = "ABC";		// * :  주소가 저장되는 포인터 변수
-	char ch3 = 'A';		// 1바이트 (pointer은 4 아님 8바이트)
-
-	// #3. 변수 및 주석
-	/*
-	변수의 선언 예를 보인 예제 입니다.
-	그리고 이 구간의 코드는 모두 주석입니다.
-	*/
-
-	// 결과를 저장하기 위한 변수
-	int nData = 0;
-	char ch4 = 'A';  //입력을 저장할 변수
+    return 0;
 }
