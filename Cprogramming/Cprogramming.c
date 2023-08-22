@@ -3,16 +3,21 @@
 
 void main()
 {
-	// gets()/puts( )
-	char szBuffer[128] = { 0 };
-	printf("Input your name: ");
-	// 전체 문자열을 통째로 반환
-	gets(szBuffer);
+	char* pszData = "Test string!";
 
-	printf("Your name is ");
-	// 출력할 문자열의 길이를 따로 명시하지 않아도 알아서 출력
-	puts(szBuffer);
+	// pszData 변수에 저장된 주소를 근거로 문자열을 출력
+	printf("%s\n", pszData);	// 0x00007FF7DCCC9C10
+	// pszData 변수에 저장된 주소를 주소 형식으로 출력
+	printf("%p\n", pszData); 
+	// &는 주소 연산자
+	// &pszData는 pszData라는 이름의 변수의 주소
+	// 주소 형식으로 출력되는 것은 pszData라는 이름의 메모리 주소
+	printf("%p\n", &pszData);	// 0x00000090DEFCF7C8
 }
 
-// Input your name: gani
-// Your name is gani
+/*
+Test string!
+00007FF63BE69C10
+00000066C233FC48
+계속하려면 아무 키나 누르십시오 . . .
+*/
