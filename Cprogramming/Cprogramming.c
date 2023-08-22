@@ -3,21 +3,22 @@
 
 void main()
 {
-	char* pszData = "Test string!";
+	// 부호를 표현하는 형식 활용
+	int nData1 = 1234, nData2 = -4567;
 
-	// pszData 변수에 저장된 주소를 근거로 문자열을 출력
-	printf("%s\n", pszData);	// 0x00007FF7DCCC9C10
-	// pszData 변수에 저장된 주소를 주소 형식으로 출력
-	printf("%p\n", pszData); 
-	// &는 주소 연산자
-	// &pszData는 pszData라는 이름의 변수의 주소
-	// 주소 형식으로 출력되는 것은 pszData라는 이름의 메모리 주소
-	printf("%p\n", &pszData);	// 0x00000090DEFCF7C8
+	printf("%d\n", nData1);
+	printf("%+d, %+d\n", nData1, nData2);
+
+	printf("%07d\n", nData1);
+	printf("%7d\n", nData1);
+	printf("%-7d\n", nData1);
 }
 
 /*
-Test string!
-00007FF63BE69C10
-00000066C233FC48
+1234
++1234, -4567
+0001234
+   1234
+1234
 계속하려면 아무 키나 누르십시오 . . .
 */
