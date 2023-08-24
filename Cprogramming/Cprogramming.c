@@ -3,45 +3,25 @@
 
 void main(void)
 {
-	char ch = 'A';
-	int nData = 15;
-	float fData1 = 1.5f, fData2 = 3.4f;
+	char ch = 'A';    // 아스키코드 10진수로 65
+	// 자료형이 char인 변수와 정수형 상수 2를 연산하여 결과를 출력
+	  // char형 값은 자동으로 int형으로 승격되거나 변환되어 연산에 참여
+	printf("%d\n", ch * 2);     // 65 * 2
 
-	// 자료형이 char인 값을 int형으로 승격하고 나서 
-	printf("%d\n", ch + 2);
-	// 정수형 상수 2와 더한 결과를 각각의 형식으로 출력
-	printf("%c\n", ch + 2);
+	// 정수형 값 간에 연산하면 결과 역시 정수형 값
+	printf("%d\n", 1 / 2);   // 0.5 -> 0
+	// %f 포멧을 사용하면 소숫점 이하 6자리까지 출력 (double은 15자리)
+	printf("%f\n", 1 / 2);   // 0.5 -> 0.500000
 
-	// float형과 int형 간의 연산 결과를 다시 float형과 연산
-	printf("%f\n", fData1 * 100 / fData2);
-	// float형과 int형 그리고 float형 간의 연산 결과는 float형 
-	printf("%f\n", fData2 / fData1);
+	// 실수형 값과 정수형 값을 연산하면 결과는 실수형 값
+	printf("%f\n", 1.0f / 2);    // 0.500000
+	printf("%f\n", 1 / 2.0f);    // 
 
-	// int형 간의 연산 결과는 int형
-	// int형은 %f 형식 문자로 출력할 수 없다
-	printf("%f\n", nData * 100 / 100);
-
-	// int형 간의 연산 결과는 int형이므로 소수점 이하 정보는 절사
-	// nData 변수를 10으로 나눈 결과는 1.5가 아니라 int형인 1
-	printf("%f\n", nData / 10 * 100.0f);
-
-	// int형인 nData 변수를 일시적으로 float형으로 형변환, int형과 연산
-	// float형 간의 연산이 이루어졌으나 결과를 다시 int형으로 강제 형변환하여 정	수
-	printf("%d\n", (int)((float)nData / 10 * 100.0f));
-
-	// int형을 일시적으로 float형으로 강제 형변환을 하고서 int형과 연산
-	printf("%f\n", (float)nData * 100 / 100);
-
-	// int형 간의 연산 결과를 float형으로 형변환하여 int형과 연산
-	printf("%f\n", (float)(nData * 100) / 100);
+	printf("%d\n", 5 / 2.f);    // 
 }
 
-// 67
-// C
-// 44.117646
-// 2.266667
+// 130
+// 0
 // 0.000000
-// 100.000000
-// 150
-// 15.000000
-// 15.000000
+// 0.500000
+// 0.500000
