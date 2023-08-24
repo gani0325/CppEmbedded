@@ -1,12 +1,18 @@
-﻿#include <stdio.h>
+﻿// 연산의 우선순위가 달라져서 결과가 달라짐
 
-void main()
+#include <stdio.h>
+
+void main(void)
 {
-	// 사용자로부터 음수 하나를 입력받아 printf( ) 함수를 이용하여 부호가 없는 정수형과 16진수로 출력하는 프로그램을 작성하세요.
-	// 단, 출력되는 두 값은 각각 다른 행에 출력되어야 합니다
-	int num = 0;
+	// 사용자로부터 정수 두 개를 입력받고 사칙 연산(덧셈, 뺄셈, 곱셈, 나눗셈) 결과를 출력
+	// 예를 들어 10과 5를 입력받았다면 15, 5, 50, 2가 출력되어야 합니다.
+	int num1, num2;
 
-	scanf_s("%d", &num);
-	printf("%u\n", num);
-	printf("%x", num);
+	printf("숫자 입력 하세용 (num1 num2) : ");
+	scanf_s("%d %d", &num1, &num2);
+
+	printf("%d + %d = %d", num1, num2, num1 + num2);
+	printf("\n%d - %d = %d", num1, num2, num1 - num2);
+	printf("\n%d * %d = %d", num1, num2, num1 * num2);
+	printf("\n%d / %d = %d", num1, num2, num1 / num2);
 }
