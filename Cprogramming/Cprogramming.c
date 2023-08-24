@@ -2,22 +2,11 @@
 
 void main()
 {
-	char szBuffer[128] = { 0 };
-	printf("Input string: ");
-
-	// 두번째 칸부터 받을 수 있음
-	scanf_s("%s", szBuffer+1, 128);
-	puts(szBuffer);
-	puts(szBuffer+1);
+	// getchar( ) 함수를 이용하여 세 글자 이상의 문자열을 입력받고서
+	// 그중 두 번째 문자를 printf() 함수로 화면에 출력
+	char ch;
+	ch = getchar();
+	ch = getchar();
+	printf("%c", ch);
+	ch = getchar();
 }
-
-//Input string: 이것은테스트문자열입니다.
-//이것은테스트문자열입니다.
-//계속하려면 아무 키나 누르십시오 . . .
-
-/**********/
-
-
-//Input string: 이것은 테스트 문자열입니다.
-//이것은
-//계속하려면 아무 키나 누르십시오 . . .
