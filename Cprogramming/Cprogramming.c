@@ -2,17 +2,16 @@
 
 void main(void)
 {
-	// 다음 코드의 실행 결과와 원리에 대해 답하세요
+	// 사용자로부터 세 정수를 입력받고, 그 중에서 가장 큰 정수를 출력하는 프로그램을 작성하세요
+	// 단, 반드시 삼항 연산자를 사용하세요
 
-	int nResult, w = 0, x = -1, y = -1, z = 1;
+	int num1 = 0, num2 = 0 , num3 = 0;
+	printf("세 정수를 입력하세용 (num1, num2, num3) : ");
+	scanf_s("%d %d %d", &num1, &num2, &num3);
 
-	// 논리 연산자는 오른쪽에 우서순위가 높더라도 왼쪽 -> 오른쪽으로 연산한다
-	nResult = w++ || x++ && ++y || ++z;
-	// 1) w++ || (x++ && ++y || ++z); ===> w++ 가 0에서 1로 증가
-	// 2) w++ || (x++ && (++y || ++z)); ===> x++ 가 -1에서 0로 증가지만 아직 -1에 머무르므로 true
-	// 3) ++y 가 -1에서 0으로 증가, ++z가 1에서 2로 증가 ===> 1
-	// 4) 0 || (-1 && 1) ===> 1
+	int temp, result;
+	temp = (num1 > num2) ? num1 : num2;
+	result = (temp > num3) ? temp : num3;
 
-	printf("%d %d %d %d %d\n", w, x, y, z, nResult);
-	// 출력 : 1 0 0 2 1
+	printf("%d", result);
 }
