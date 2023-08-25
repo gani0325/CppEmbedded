@@ -2,16 +2,17 @@
 
 void main(void)
 {
-	// 사용자로부터 세 정수를 입력받고, 그 중에서 가장 큰 정수를 출력하는 프로그램을 작성하세요
-	// 단, 반드시 삼항 연산자를 사용하세요
+	// if 문을 사용하여 사용자로부터 입력받은 다섯 정수 중 최댓값을 출력하는 프로그램을 작성하세요.
+	// 단, 다섯 개의 정수를 한 줄로 한 번에 입력받는 것이 아니라 5회에 걸쳐서 입력받는 형태로 작성하세요.
 
-	int num1 = 0, num2 = 0 , num3 = 0;
-	printf("세 정수를 입력하세용 (num1, num2, num3) : ");
-	scanf_s("%d %d %d", &num1, &num2, &num3);
+	int num, max = 0;
 
-	int temp, result;
-	temp = (num1 > num2) ? num1 : num2;
-	result = (temp > num3) ? temp : num3;
+	for (int i = 0; i < 5; i++) {
+		scanf_s("%d", &num);
+		if (max < num) {
+			max = num;
+		}
+	}
 
-	printf("%d", result);
+	printf("가장 큰 숫자는 : %d", max);
 }
