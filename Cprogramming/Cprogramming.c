@@ -13,16 +13,18 @@ void main(void)
 	char ch;
 	int num1 = 0, num2 = 0;
 	printf("영문 한 글자와 정수 둘을 입력하세용 (ch num1 num2) : ");
-	scanf_s("%c", &ch);
-	scanf_s("%d %d", &num1, &num2);
+	scanf_s("%d %d %c", &num1, &num2, &ch);
 
 	if (ch == 'a') {
 		printf("%d + %d = %d", num1, num2, num1 + num2);
-	} else if (ch == 'b') {
+	}
+	else if (ch == 'b') {
 		printf("%d * %d = %d", num1, num2, num1 * num2);
-	} else if (ch == 'c') {
+	}
+	else if (ch == 'c') {
 		printf("%d - %d = %d", num1, num2, num1 - num2);
-	} else {
+	}
+	else {
 		printf("「알 수 없는 명령」");
 	}
 }
