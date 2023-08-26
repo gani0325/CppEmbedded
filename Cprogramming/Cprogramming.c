@@ -1,25 +1,27 @@
-﻿// 연산의 우선순위가 달라져서 결과가 달라짐
-
-#include <stdio.h>
+﻿#include <stdio.h>
 
 void main(void)
 {
-	int nData = 10, nNewData = 20;
-	int nResult = 0;
+	int nResult = 0x11223344;
 
-	printf("%d\n", ++nData);
+	// nResult 변수에 저장된 32비트 정수와 32비트 16진수 FFFF0000를 비트 AND
+	printf("%X\n", nResult & 0xFFFF0000);
 
-	// nData 변수에 저장된 값을 출력시키고서 
-	// nData 변수에 저장된 값을 1만큼 증가
-	printf("%d\n", nData++);
+	// 각각 오른쪽, 왼쪽 쉬프트(Shift) 연산
+	printf("%X\n", nResult >> 16);
+	printf("%X\n", nResult << 8);
 
-	// nData 변수에 저장된 값을 1만큼 증가시키고서 
-	// nNewData 변수에 저장된 값과 더하는 연산을 수행
-	// 결과를 nResult 변수에 저장하고서 nNewData 변수의 값을 1만큼 증가
-	nResult = ++nData + nNewData++;
-	printf("%d\n", nResult);
+	// nResult 변수에 저장된 32비트 정수와 32비트 16진수 2211FFFF를 비트 OR 연산
+	printf("%X\n", nResult | 0x2211FFFF);
+	// nResult 변수에 저장된 32비트 정수와 32비트 16진수 2211FFFF를 비트 XOR 연산
+	printf("%X\n", nResult ^ 0x2211FFFF);
+	// nResult 변수에 저장된 32비트 정수에 대한 1의 보수를 출력
+	printf("%X\n", ~nResult);
 }
 
-// 11
-// 11
-// 33
+// 11220000
+// 1122
+// 22334400
+// 3333FFFF
+// 3333CCBB
+// EEDDCCBB
