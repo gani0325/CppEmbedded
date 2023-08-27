@@ -1,27 +1,31 @@
-﻿#include <stdio.h>
+﻿// 주소를 계산하는 것뿐만 아니라 
+// 계산된 주소를 간접 지정하여 문자를 출력
+
+#include <stdio.h>
+#include <malloc.h>
+#include <string.h>
 
 void main(void)
 {
-	int nResult = 0x11223344;
+	// char형 포인터 변수 pszData를 선언, 문자열 상수의 주소로 초기화
+	char* pszData = "Test string!";
 
-	// nResult 변수에 저장된 32비트 정수와 32비트 16진수 FFFF0000를 비트 AND
-	printf("%X\n", nResult & 0xFFFF0000);
+	// pszData라는 포인터 변수에 저장된 주소
+	// 그 주소를 간접 지정한 메모리의 내용을 각각 주소와 문자 형식으로 출력
+	printf("[%p] %c\n", pszData, *pszData);
+	printf("[%p] %c\n", pszData + 1, *(pszData + 1));
+	printf("[%p] %c\n", pszData + 2, *(pszData + 2));
+	printf("[%p] %c\n", pszData + 3, *(pszData + 3));
 
-	// 각각 오른쪽, 왼쪽 쉬프트(Shift) 연산
-	printf("%X\n", nResult >> 16);
-	printf("%X\n", nResult << 8);
-
-	// nResult 변수에 저장된 32비트 정수와 32비트 16진수 2211FFFF를 비트 OR 연산
-	printf("%X\n", nResult | 0x2211FFFF);
-	// nResult 변수에 저장된 32비트 정수와 32비트 16진수 2211FFFF를 비트 XOR 연산
-	printf("%X\n", nResult ^ 0x2211FFFF);
-	// nResult 변수에 저장된 32비트 정수에 대한 1의 보수를 출력
-	printf("%X\n", ~nResult);
+	// pszData라는 포인터 변수에 저장된 주소와 옵셋을 수행하여 그 주소를 출력
+	// 옵셋 결과에 해당하는 주소를 간접 지정하여 메모리에 저장된 값을 출력
+	printf("[%p] %c\n", pszData + 5, *(pszData + 5));
+	printf("[%p] %c\n", pszData + 11, *(pszData + 11));
 }
 
-// 11220000
-// 1122
-// 22334400
-// 3333FFFF
-// 3333CCBB
-// EEDDCCBB
+/*
+[00371C78] T
+[00371C79] e
+[00371C7D] s
+[00371C83] !
+*/
