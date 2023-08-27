@@ -21,13 +21,16 @@ void main(void)
 	// 옵셋 결과에 해당하는 주소를 간접 지정하여 메모리에 저장된 값을 출력
 	printf("[%p] %c\n", pszData + 5, *(pszData + 5));
 	printf("[%p] %c\n", pszData + 11, *(pszData + 11));
+
+	printf("%c %c\n", *pszData + 1, *pszData + 2);
 }
 
 /*
-[00007FF65F929C28] T
-[00007FF65F929C29] e
-[00007FF65F929C2A] s
-[00007FF65F929C2B] t
-[00007FF65F929C2D] s
-[00007FF65F929C33] !
+[00007FF610729C28] T
+[00007FF610729C29] e
+[00007FF610729C2A] s
+[00007FF610729C2B] t
+[00007FF610729C2D] s
+[00007FF610729C33] !
+U V
 */
