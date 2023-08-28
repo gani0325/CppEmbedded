@@ -28,5 +28,10 @@ void main(void)
 }
 
 /*
-
+test
+hi
+try
+ticket
+/
+t의 개수는 5개
 */
