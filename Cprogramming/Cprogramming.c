@@ -2,16 +2,16 @@
 
 void main(void)
 {
-  int nInput = 0;
-  scanf("%d", &nInput);
+    int i = 0;
 
-  do
-  {
-    printf("%dth printf()\n", nInput);
-    nInput--;
-  }
-  while(nInput > 0);
+    for (i = 0; i < 5; ++i)
+    {
+        printf("%dth\n", i);
+    }
 }
 
-// -1를 입력
-// -1th printf( )
+// 0th
+// 1th
+// 2th
+// 3th
+// 4th
