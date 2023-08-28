@@ -1,4 +1,5 @@
 ﻿#include <stdio.h>
+
 void main(void)
 {
 	int x = 0, y = 0;
