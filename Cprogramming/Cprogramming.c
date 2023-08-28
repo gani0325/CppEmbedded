@@ -12,10 +12,10 @@ void main(void)
 		// 20 19 18 17 16
 		// 21 22 23 24 25
 
-	for (int i = 1; i <= 25; i += 10) {
-		printf("???? %d  ", i);
-		if (i % 10 == 0) {
-			for (int k = 10 * i; k > i - 5; k--) {
+	for (int i = 1; i <= 25; i += 5) {
+
+		if (i % 6 == 0) {
+			for (int k = i + 4; k >= i; k--) {
 				printf("%d\t", k);
 			}
 			printf("\n");
@@ -30,6 +30,9 @@ void main(void)
 }
 
 /*
-a b c d e
-단어의 개수는 5개
+1       2       3       4       5
+10      9       8       7       6
+11      12      13      14      15
+16      17      18      19      20
+21      22      23      24      25
 */
