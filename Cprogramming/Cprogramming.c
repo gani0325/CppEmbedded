@@ -1,36 +1,33 @@
-﻿#include <stdio.h>
-#include <string.h>
+﻿// 사용자로부터 입력받은 크기만큼의 메모리를 동적으로 할당받은 후
+// 다시 문자열을 입력받아 앞서 동적으로 할당받은 메모리에 저장하고 출력
+#include <stdio.h>
+#include <malloc.h>
 
 void main(void)
 {
-	// 다음과 같은 모양으로 숫자를 출력하는 프로그램을 작성하세요. 
-	// 단, 숫자들 사이 공간은 탭(\t)으로 출력하세요.
-	// 참고로 왼쪽이 비어 있는 것들은 숫자를 출력하지 않고 키만 출력한 것입니다.
-    //  4)			  1
-	//				2 3 4
-	//			  5 6 7 8 9
-	//		10 11 12 13 14 15 16
-	//	 17 18 19 20 21 22 23 24 25
+	// 한글 이름 두 개를 입력받은 후, 같은 성인지 비교하여 같은 성이면 '같음', 
+	// 그렇지 않으면 '다름'이라는 문자열을 출력하는 프로그램을 작성하세요.
+	// 단, 만일 사용자가 문자열을 입력하지 않았다면 무조건 '다름'이라고 출력합니다
 
-	int k = 1;
+	char name1[10];
+	char name2[10];
+	char* name1Addr = name1;
+	char* name2Addr = name2;
 
-	for (int i = 1; i <= 5; i++) {
-		for (int j = 5-i; j > 0; j--) {
-			printf("\t");
-		}
+	//scanf_s("%c %c", name1, name2);
+	gets(name1);
+	gets(name2);
+	printf("### %c", *name1Addr);
 
-		for (int j = 0; j < 2*i - 1; j++) {
-			printf("%d\t", k);
-			k++;
-		}		
-		printf("\n");
+	if (*name1Addr == *name2Addr) {
+		printf("같음");
+	}
+	else {
+		printf("다름");
 	}
 }
 
 /*
-								1
-						2       3       4
-				5       6       7       8       9
-		10      11      12      13      14      15      16
-17      18      19      20      21      22      23      24      25
+Input length : //16
+Choi ho-sung // Choi ho-sung
 */
