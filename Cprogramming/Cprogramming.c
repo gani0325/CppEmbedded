@@ -1,33 +1,35 @@
-﻿#include <stdio.h>
+﻿// 사용자로부터 입력받은 크기만큼의 메모리를 동적으로 할당받은 후
+// 다시 문자열을 입력받아 앞서 동적으로 할당받은 메모리에 저장하고 출력
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
 #include <malloc.h>
+
 
 void main(void)
 {
-	// 사용자로부터 정수를 입력받은 후, 그 정수의 크기만큼(바이트 단위) 메모리를 동적으로
-	// 할당받고 0으로 초기화하는 프로그램을 작성하세요.
-	// 단, 정수의 값이 100을 초과하면 강제로 100으로 조정하고, 10보다 작은 경우에는 10으로 조정합니다.
+	char* pszData = NULL;
+	int nInput = 0;
 
-	int num;
-	int* pnNum = NULL;
-	scanf_s("%d", &num);
-	printf("%d", num);
+	printf("Input length : ");
+	// 사용자로부터 정수를 입력받아 nInput 변수에 저장
+	scanf_s("%d\n", &nInput);
+	// malloc( ) 함수로 입력받은 수만큼의 메모리를 동적으로 할당받고 
+	// 그 주소를 pszData 포인터 변수에 저장
+	pszData = (char*)malloc(sizeof(char) * nInput);
 
-	if (num > 100) {
-		pnNum = (int*)malloc(sizeof(int) * 100);
-		memset(pnNum, 0, sizeof(int) * 100);
-	}
-	else if (num < 10) {
-		pnNum = (int*)malloc(sizeof(int) * 10);
-		memset(pnNum, 0, sizeof(int) * 10);
-	}
-	else {
-		pnNum = (int*)malloc(sizeof(int) * num);
-		memset(pnNum, 0, sizeof(int) * num);
-	}
-
-	free(pnNum);
+	// 표준 입력 장치 파일의 입출력 정보를 초기화
+	// fflush(stdin)은 주로 개행문자 '\n'을 버리기 위해 사용
+	fflush(stdin);
+	// 사용자로부터 문자열을 입력받아서 pszData 포인터 변수에 
+	// 저장된 주소의 메모리에 저장
+	gets(pszData);
+	// fgets(pszData, sizeof(pszData), stdin);
+	puts(pszData);
+	// 동적으로 할당받았던 메모리를 free( ) 함수로 해제
+	free(pszData);
 }
 
 /*
-
+Input length : //16
+Choi ho-sung // Choi ho-sung
 */
