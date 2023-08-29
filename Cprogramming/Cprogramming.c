@@ -1,34 +1,28 @@
-﻿// 사용자로부터 입력받은 크기만큼의 메모리를 동적으로 할당받은 후
-// 다시 문자열을 입력받아 앞서 동적으로 할당받은 메모리에 저장하고 출력
-// 메모리를 동적으로 할당받기 위해 calloc( ) 함수를 사용
-
-#include <stdio.h>
+﻿#include <stdio.h>
 #include <malloc.h>
-#include <string.h>
 
 void main(void)
 {
-	char* pszData = NULL;
-	int nInput = 0;
+	//  두 정수를 입력받아 같은 숫자인지 아닌지 비교하는 프로그램을 작성하세요.
+	//  단, == 연산자가 아니라 memcmp() 함수를 사용하세요
 
-	printf("Input length : ");
-	// 사용자로부터 정수를 입력받아 nInput 변수에 저장
-	scanf_s("%d\n", &nInput);
-	// calloc( ) 함수를 이용하여 메모리를 동적으로 할당받고
-	// 0으로 초기화한 후, 그 주소를 pszData 포인터 변수에 저장
-	pszData = (char*)calloc(nInput, sizeof(char));
+	int num1[] = { 0 };
+	int num2[] = { 0 };
+	//int* ptrnum1 = &num1, ptrnum2 = &num2;
 
-	// 표준 입력 장치 파일의 입출력 정보를 초기화
-	fflush(stdin);
-	// 사용자로부터 문자열을 입력받아서 pszData 포인터 변수에 
-	// 저장된 주소의 메모리에 저장
-	gets(pszData);
-	puts(pszData);
-	// 동적으로 할당받았던 메모리를 free( ) 함수로 해제
-	free(pszData);
+	scanf_s("%d %d", &num1, &num2);
+
+	if (memcmp(num1, num2, 10) == 0) {
+		printf("%d %d 같은 수", *num1, *num2);
+	}
+	else if (memcmp(num1, num2, 10) == 1) {
+		printf("%d > %d", *num1, *num2);
+	}
+	else if (memcmp(num1, num2, 10) == -1) {
+		printf("%d < %d", *num1, *num2);
+	}
 }
 
 /*
-Input length : //16
-홍길동 // 홍길동
+
 */
