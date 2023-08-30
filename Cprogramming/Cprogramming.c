@@ -1,36 +1,19 @@
 ﻿#include <stdio.h>
 
-void main() {
-	char aszData[3][16] = {
-		"Test string",
-		"Sample data",
-		"Array of array"
-	};
+void main(void)
+{
+	char aszName[2][16] = { "Gil-dong", "Ho-sung" };
+	char(*pszName)[16] = aszName;
 
-	printf("%c\n", aszData[1][3]);
-	printf("%c\n", *(*(aszData + 1) + 3));
-
-	printf("%s\n", aszData[0]);
-	printf("%s\n", aszData + 1);
-	printf("%s\n", *(aszData + 2));
-	//printf("%p\n", aszData);
-	//printf("%p\n", aszData[0]);
-	//printf("%p\n", aszData + 1);
-	//printf("%p\n", aszData + 2);
-	
-	printf("%p\n", *aszData);
-	printf("%p\n", *aszData + 1);
-	printf("%s\n", *(aszData + 1) + 1);
-
-	char aszData2[16] = "hello";
-	printf("%s\n", aszData2);
+	printf("%c, %c\n", aszName[1][3], pszName[1][3]);
+	printf("%p, %p\n", aszName, aszName + 1);
+	printf("%p\n", *(aszName + 1) + 4);
+	printf("%c\n", *(*(aszName + 1) + 4));
 }
+
 /*
-p
-p
-Test string
-Sample data
-Array of array
-est string
-ample data
+s, s
+0000002BA016F718, 0000002BA016F728
+0000002BA016F72C
+u
 */
