@@ -19,10 +19,8 @@ int UpSorted(int* array, int num) {
 			}
 		}
 	}
-	
-	for (int i = 0; i < num; i++) {
-		printf("%d", array[i]);
-	}
+	printf("^^^^^^%p", array);
+
 	return 0;
 }
 
