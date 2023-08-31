@@ -3,13 +3,8 @@
 
 int max = _CRT_INT_MAX;
 
-int GetLength(char *ch) {
+int GetLength(const char* ch) {
 	int cnt = 0;
-	//printf("%c", ch);
-	//printf("%c", *ch);
-	//printf("%c", *(ch + 1));
-	//printf("%c", *(ch + 2));
-	//
 
 	for (int i = 0; i < max; i++) {
 		if (*(ch + i) == 00) {
@@ -20,7 +15,6 @@ int GetLength(char *ch) {
 		}
 	}
 
-	//printf("%s", ch);
 	return cnt;
 }
 
@@ -30,18 +24,13 @@ void main(void)
 	// 단, 절대로 strlen() 함수를 사용하지 말고 직접 계산하는 코드를 작성하세요.
 	// 함수의 이름은 GetLength()로 합니다
 
-	char* ch[16];
+	char ch[16];
 	printf("문자열 입력하세요 : ");
 	gets(ch);
-	//scanf_s("%s", &ch);
-	
-	//printf("%s", ch);
- 	//puts(ch);
 
 	int result = 0;
-	result = GetLength(&ch);
+	result = GetLength(ch);
 	printf("문자열 길이 : %d", result);
-	// printf("문자열 길이 : %d", strlen(ch));
 }
 
 /*
