@@ -2,19 +2,18 @@
 
 void main(void)
 {
-	// 문자열을 입력받아서 대문자는 소문자로, 
-	// 소문자는 대문자로 변환하여
-	// 출력하는 프로그램을 작성하세요
+	// 사용자로부터 두 문자열을 입력받은 후, 
+	// 두 문자열 중에서 길이가 긴 문자열이 출력되는 프로그램을 작성하세요
 
-	char ch[15] = { 0, };
-	gets(ch);
+	char ch1[15] = { 0, };
+	char ch2[15] = { 0, };
+	gets(ch1);
+	gets(ch2);
 
-	for (int i = 0; i < strlen(ch); i++) {
-		printf("%c", toupper(*(ch + i)));
+	if (strlen(ch1) > strlen(ch2)) {
+		puts(ch1);
 	}
-	printf("\n");
-
-	for (int i = 0; i < strlen(ch); i++) {
-		printf("%c", tolower(*(ch + i)));
+	else {
+		puts(ch2);
 	}
 }
