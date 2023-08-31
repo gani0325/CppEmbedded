@@ -1,43 +1,46 @@
 ﻿#include <stdio.h>
-#include <stdlib.h> 
 
-int max = _CRT_INT_MAX;
+int UpSorted(char* array, int num) {
+	int sort[] = { 0, };
+	int min = 0;
 
-char GetReverse(char* ch) {
-	char reverse[16];
-	
-	/*printf("%p", ch);
-	printf("%c", *ch);
-	printf("%c", *(ch + 1));
-	printf("%c", *(ch + 2));*/
-
-	for (int i = 0; i < strlen(ch); i++) {
-		*(reverse + i) = *(ch + (strlen(ch) - 1 - i));
+	printf("#####%p\n", array);
+	printf("^^^^^^%d", *(array+1));
+	for (int i = 0; i < num; i++) {
+		min = array[i];
+		for (int j = i + 1; j < num; j++) {
+			if (min > *(array + 4*j)) {
+				min = *(array + 4*j);
+			}
+			else {
+				continue;
+			}
+		}
+		*(sort + 4*i) = min;
 	}
-	printf("%c", *reverse);
-	printf("%c", *(reverse + 1));
-	printf("%c", *(reverse + 2));
-	printf("%c", *(reverse + 3));
-	printf("%c", *(reverse + 4));
+	printf("^^^^^^%p", sort);
 
-	// printf("%p", reverse);
-
-	return reverse;
+	return 0;
 }
 
 void main(void)
 {
-	// 인자로 char*형을 받아서 문자열을 거꾸로 출력하는 함수를 작성하세요.
-	// 문제를 해결하기 위해서 strlen() 함수를 사용하거나 1번 문제에서 작성한 함수를 사용해도 좋습니다.
+	// 인자로 int형 배열(혹은 주소)과 요소의 개수를 받은 후, 
+	// 오름차순으로 정렬하는 함수를 작성하세요
 
-	char ch[16];
-	printf("문자열 입력하세요 : ");
-	gets(ch);
-	
-	GetReverse(ch);
-	//printf("문자열 거꾸로 : %c", GetReverse(ch));
+	int Arr[] = {0,};
+	int num = 0;
+	int n = 0;
+
+	scanf_s("%d", &num);
+	for (int i = 0; i < num; i++) {
+		scanf_s("%d", &n);
+		Arr[i] = n;
+	}
+
+	//printf("#####%d", *Arr);
+	printf("#####%p", &Arr);
+	printf("^^^^^^%d", *Arr);
+	UpSorted(Arr, num);
+
 }
-
-/*
-
-*/
