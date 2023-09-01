@@ -1,15 +1,18 @@
 ﻿#include <stdio.h>
 
+int TestFunc1(int nParam) { return nParam * 2; }
+int TestFunc2(int nParam) { return nParam * 3; }
+
 void main()
 {
-	int nTotal = 0;
-	register int i = 0;
-	for (i = 0; i < 10; ++i)
-	{
-		nTotal += i;
-	}
+    int nInput = 0;
+    // 함수 포인터
+    int (*pfTestFunc)(int) = NULL;
 
-	printf("%d\n", i);
-	// 레지스터는 주소연산 할 수 없음 (전역, 정적 변수 사용 X)
-	// printf("%p\n", &i);
+    scanf_s("%d", &nInput);
+    if (nInput > 5)
+        pfTestFunc = TestFunc1;
+    else
+        pfTestFunc = TestFunc2;
+    printf("%d\n", pfTestFunc(nInput));
 }
