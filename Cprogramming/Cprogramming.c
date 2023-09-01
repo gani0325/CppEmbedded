@@ -1,32 +1,15 @@
 ﻿#include <stdio.h>
 
-// 전역변수
-int nResult = 10;
-int TestFunc()
-{	// 정적변수 (전역변수 처럼 특정 스코프에서 가능)
-	// 정적은 한번만 초기화해줌 (반복해도 무시~할듯)
-	static int nResult = 10;
-	nResult++;
-	return nResult;
-}
-
-int TestFunc2()
-{	// 정적변수 (전역변수 처럼 특정 스코프에서 가능)
-	// 정적은 한번만 초기화해줌 (반복해도 무시~할듯)
-	static int nResult = 10;
-	nResult++;
-	return nResult;
-}
-
-void main(void)
+void main()
 {
-	printf("%d\n", TestFunc());
-	printf("%d\n", TestFunc());
-	printf("%d\n", TestFunc());
+	int nTotal = 0;
+	register int i = 0;
+	for (i = 0; i < 10; ++i)
+	{
+		nTotal += i;
+	}
 
-	// 변수명 같아도 Data 영역에 다른 주소가 저장됨
-	printf("%d\n", TestFunc2());
-	printf("%d\n", TestFunc2());
-	printf("%d\n", TestFunc2());
-	printf("%d", nResult);
+	printf("%d\n", i);
+	// 레지스터는 주소연산 할 수 없음 (전역, 정적 변수 사용 X)
+	// printf("%p\n", &i);
 }
