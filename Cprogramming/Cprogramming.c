@@ -1,17 +1,19 @@
 ﻿#include <stdio.h>
 
-// 외부변수 지정
-extern int g_nCounter;
-
-// 함수 선언
-void InitCounter(int nData);
-
-void IncreaseCounter();
+// 전역변수
+int nResult = 10;
+int TestFunc()
+{	// 정적변수 (전역변수 처럼 특정 스코프에서 가능)
+	// 정적은 한번만 초기화해줌 (반복해도 무시~할듯)
+	static int nResult = 10;
+	nResult++;
+	return nResult;
+}
 
 void main(void)
 {
-	InitCounter(10);
-	printf("%d\n", g_nCounter);
-	IncreaseCounter();
-	printf("%d\n", g_nCounter);
+	printf("%d\n", TestFunc());
+	printf("%d\n", TestFunc());
+	printf("%d\n", TestFunc());
+	printf("%d", nResult);
 }
