@@ -1,27 +1,38 @@
 ﻿#include <stdio.h>
+#include <stdlib.h>
 
-int fibo(int i) {
-    if (i == 0) {
-        return 0;
+void PutString(char* pszData) {
+    char temp[20] = { 0, };
+
+    // temp 에 잠시 복붙.. (strcmp 도 되려나)
+    for (int i = 0; i < strlen(pszData); i++) {
+        *(temp + i) = *(pszData + i);
     }
-    if (i == 1 || i == 2) {
-        return 1;
-    } 
-    return fibo(i - 1) + fibo(i - 2);
+
+    // 기존 pszData 에 거꾸로 된거로 변환한다
+    for (int j = 0; j < strlen(temp); j++) {
+        *(pszData + j) = *(temp + strlen(temp) - 1 - j);
+    }
+
+    return pszData;
 }
 
-int max = _CRT_INT_MAX;
 void main()
 {
-    // 재귀 호출을 이용하여 값이 60 이하인 
-    // 피보나치(Fibonacci) 수열을 출력하는 프로그램을 작성하세요.
-    // 참고로 피보나치 수열은 다음과 같이 앞뒤 숫자의 합이 이어지는 모습을 하고 있습니다+
-    // 1 1 2 3 5 8 13 21 34 55  
+    // 인자로 char*형을 받아서 문자열을 거꾸로 출력하는 재귀 호출 함수를 작성하세요.
+    // 함수의 원형은「void PutString(char* pszData); 」와 같습니다
 
-    for (int j = 1; j < 60; j++) {
-        if (fibo(j) > 60) {
-            break;
-        }
-        printf("%d ", fibo(j));
-    }
+    char* pszData[20] = { 0, };
+
+    gets(pszData);
+    puts(pszData);
+
+    PutString(pszData);
+    puts(pszData);
 }
+
+/*
+hello
+hello
+olleh
+*/
