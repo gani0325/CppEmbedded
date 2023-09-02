@@ -1,20 +1,16 @@
 ﻿#include <stdio.h>
 #include <stdlib.h>
 
-void PutString(char* pszData) {
-    char temp[20] = { 0, };
-
-    // temp 에 잠시 복붙.. (strcmp 도 되려나)
-    for (int i = 0; i < strlen(pszData); i++) {
-        *(temp + i) = *(pszData + i);
+void PutString(char* str) {
+    if (*str == NULL) {
+        return;
     }
-
-    // 기존 pszData 에 거꾸로 된거로 변환한다
-    for (int j = 0; j < strlen(temp); j++) {
-        *(pszData + j) = *(temp + strlen(temp) - 1 - j);
+        
+    else
+    {   
+        PutString(str + 1);
+        printf("%c", *str);
     }
-
-    return pszData;
 }
 
 void main()
@@ -28,7 +24,6 @@ void main()
     puts(pszData);
 
     PutString(pszData);
-    puts(pszData);
 }
 
 /*
