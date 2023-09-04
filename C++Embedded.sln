@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cprogramming", "Cprogrammin
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "C++programming", "C++programming\C++programming.vcxproj", "{0003C731-E286-4D61-B724-3AB493E81627}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LibScamper", "Cprogramming\LibScamper\LibScamper.vcxproj", "{A45E7AB4-7C7D-46E5-A57E-A73214316DA7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -61,6 +63,14 @@ Global
 		{0003C731-E286-4D61-B724-3AB493E81627}.Release|x64.Build.0 = Release|x64
 		{0003C731-E286-4D61-B724-3AB493E81627}.Release|x86.ActiveCfg = Release|Win32
 		{0003C731-E286-4D61-B724-3AB493E81627}.Release|x86.Build.0 = Release|Win32
+		{A45E7AB4-7C7D-46E5-A57E-A73214316DA7}.Debug|x64.ActiveCfg = Debug|x64
+		{A45E7AB4-7C7D-46E5-A57E-A73214316DA7}.Debug|x64.Build.0 = Debug|x64
+		{A45E7AB4-7C7D-46E5-A57E-A73214316DA7}.Debug|x86.ActiveCfg = Debug|Win32
+		{A45E7AB4-7C7D-46E5-A57E-A73214316DA7}.Debug|x86.Build.0 = Debug|Win32
+		{A45E7AB4-7C7D-46E5-A57E-A73214316DA7}.Release|x64.ActiveCfg = Release|x64
+		{A45E7AB4-7C7D-46E5-A57E-A73214316DA7}.Release|x64.Build.0 = Release|x64
+		{A45E7AB4-7C7D-46E5-A57E-A73214316DA7}.Release|x86.ActiveCfg = Release|Win32
+		{A45E7AB4-7C7D-46E5-A57E-A73214316DA7}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
