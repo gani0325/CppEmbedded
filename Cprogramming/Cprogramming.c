@@ -51,9 +51,11 @@ void main(void)
 	}
 
 	////메모리 해제
-	//for (size_t i = 0; i < col; i++)
+	//for (size_t i = 0; i < row; i++)
 	//{
-	//	free(Array[i]);
+	//	for (size_t j = 0; j < col; j++) {
+	//		free(Array[i][j]);
+	//	}
 	//}
 	//free(Array);
 }
