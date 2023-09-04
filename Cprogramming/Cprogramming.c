@@ -1,33 +1,67 @@
 ﻿#include <stdio.h>
-#include <stdlib.h>
+#include <stdlib.h> 
 
-void PutString(char* str) {
-    if (*str == NULL) {
-        return;
-    }
-
-    else
-    {
-        PutString(str + 1);
-        printf("%c", *str);
-    }
-}
-
-void main()
+void main(void)
 {
-    // 인자로 char*형을 받아서 문자열을 거꾸로 출력하는 재귀 호출 함수를 작성하세요.
-    // 함수의 원형은「void PutString(char* pszData); 」와 같습니다
+	// 다음과 같이 배열을 채우는 프로그램을 작성한 후, 
+	// 맨 오른쪽 열과 맨 아래 행에 각각 행과 열의 합을 저장하는 프로그램을 작성하세요
 
-    char* pszData[20] = { 0, };
+	int row, col;
+	printf("가로 세로 사이즈 : ");
+	scanf_s("%d %d", &row, &col);
 
-    gets(pszData);
-    puts(pszData);
+	//size만큼 배열의 세로 동적할당
+	int** Array = (int**)malloc(sizeof(int*) * col);
 
-    PutString(pszData);
+	//size만큼 배열의 가로 동적할당 
+	for (int i = 0; i < col; i++) {
+		Array[i] = (int*)malloc(sizeof(int) * row);
+	}
+
+	int k = 1;
+	int colSum = 0;
+
+	for (int i = 0; i < row - 1; i++) {
+		colSum = 0;
+		for (int j = 0; j < col - 1; j++) {
+			Array[i][j] = k;
+			k++;
+			colSum += Array[i][j];
+			//printf("%d\n", colSum);
+		}
+		Array[i][col - 1] = colSum;
+	}
+
+	int rowSum = 0;
+	for (int i = 0; i < col; i++) {
+		rowSum = 0;
+		for (int j = 0; j < row - 1; j++) {
+			rowSum += Array[j][i];
+		}
+		Array[row - 1][i] = rowSum;
+	}
+
+
+
+	for (int i = 0; i < row; i++) {
+		for (int j = 0; j < col; j++) {
+			printf("%d\t", Array[i][j]);
+		}
+		printf("\n");
+	}
+
+	////메모리 해제
+	//for (size_t i = 0; i < col; i++)
+	//{
+	//	free(Array[i]);
+	//}
+	//free(Array);
 }
 
 /*
-hello
-hello
-olleh
+가로 세로 사이즈 : 4 5
+1       2       3       4       10
+5       6       7       8       26
+9       10      11      12      42
+15      18      21      24      78
 */
