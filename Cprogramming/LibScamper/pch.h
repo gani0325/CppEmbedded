@@ -1,4 +1,3 @@
 ﻿#pragma once
-
-void PrintData(int nData);
-void PrintString(char* pszData);
+// 함수 선언
+char* Substitute(char* const  orgin, char* source, char* target);
