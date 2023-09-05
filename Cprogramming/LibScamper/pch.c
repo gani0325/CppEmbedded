@@ -3,15 +3,16 @@
 #include "pch.h"
 #include <stdio.h>
 #include <string.h>
+#include <malloc.h>
+
 // 미리 컴파일된 헤더를 사용하는 경우 컴파일이 성공하려면 이 소스 파일이 필요합니다.
 
-
-char* szBuffer[20] = { 0 };
 char* Substitute(char* const  orgin, char* source, char* target) {
-	
-	char temp[20] = { 0 };
+	char * szBuffer = malloc(strlen(orgin) * sizeof(orgin) + 1);
+	memset(szBuffer, 0, strlen(orgin) * sizeof(orgin) + 1);
+
 	char* source_ptr = orgin;
-	char* target_ptr = temp;
+	char* target_ptr = szBuffer;
 
 	while (*source_ptr) {
 
@@ -31,8 +32,6 @@ char* Substitute(char* const  orgin, char* source, char* target) {
 	}
 	target_ptr = "/0";
 
-	//szBuffer = malloc(strlen(temp) + 1);
-	memcpy(szBuffer, temp, 20);
 	puts(szBuffer);
 	return szBuffer;
 }
