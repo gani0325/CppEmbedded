@@ -127,10 +127,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Adapt.c" />
+    <ClCompile Include="Combine.c" />
     <ClCompile Include="Cprogramming.c" />
+    <ClCompile Include="Eliminate.c" />
+    <ClCompile Include="Modify.c" />
+    <ClCompile Include="PutToOtherUses.c" />
+    <ClCompile Include="Reverse.c" />
+    <ClCompile Include="Substitute.c" />
+    <ClCompile Include="temp.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="LibScamper\LibScamper.vcxproj">
+      <Project>{a45e7ab4-7c7d-46e5-a57e-a73214316da7}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

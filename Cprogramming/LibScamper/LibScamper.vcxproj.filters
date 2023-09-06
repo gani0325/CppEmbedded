@@ -23,5 +23,26 @@
     <ClCompile Include="pch.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Substitute.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Combine.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Modify.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="PutToOtherUses.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Reverse.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Adapt.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Eliminate.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
