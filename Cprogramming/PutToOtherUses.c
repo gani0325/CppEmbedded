@@ -6,7 +6,7 @@
 #include <string.h>
 #include <ctype.h>
 
-void main() {
+void PutToOtherUses_main() {
 	// 라이브러리 개발 - SCAMPER
 
 	// 5) scamPer 영어 이름을 이니셜로 요약해주기
