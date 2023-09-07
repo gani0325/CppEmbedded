@@ -6,10 +6,7 @@
 #include <string.h>
 #include <ctype.h>
 
-// 라이브러리를 해당 main.c 폴더 위치 내에 복사시킴
-#pragma comment(lib, "LibScamper")    //<<다른 라이브러리가 사용되었음을 컴파일러에 알리고 함께 링크
-
-void PutToOtherUses_main() {
+void main() {
 	// 라이브러리 개발 - SCAMPER
 
 	// 5) scamPer 영어 이름을 이니셜로 요약해주기
