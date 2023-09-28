@@ -1,18 +1,23 @@
 ﻿#include <stdio.h>
 
+struct jsu {
+    char name[12];
+    int os, db, hab, hhab;
+};
+
 int main() {
+    struct jsu st[3] = { {"데이터1", 95, 88},
+                        {"데이터2", 84, 91},
+                        {"데이터3", 86, 75} };
+    struct jsu* p;
 
-	int ary[3];
-	int s = 0;
-	*(ary + 0) = 1;
-	ary[1] = *(ary + 0) + 2;
-	ary[2] = *ary + 3;
-	for (int i = 0; i < 3; i++) {
-		s = s + ary[i];
-	}
+    p = &st[0];
 
-	printf("%d", s);
+    (p + 1)->hab = (p + 1)->os + (p + 2)->db;
+    (p + 1)->hhab = (p + 1)->hab + p->os + p->db;
+
+    printf("%d\n", (p + 1)->hab + (p + 1)->hhab);
 }
 
 // 정보처리기사 기출 문제
-// 8
+// 501
