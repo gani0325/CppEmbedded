@@ -1,21 +1,22 @@
 ﻿#include <stdio.h>
 
-int main(int argc, char* argv[]) {
-    int a[4] = { 0,2,4,8 };
-    int b[3] = {};
-    int i = 1;
-    int sum = 0;
-    int* p1;
+int main(void) {
+	char a[] = "Art";
+	char* p = NULL;
+	p = a;
+	printf("%s\n", a);
+	printf("%c\n", *p);
+	printf("%c\n", *a);
+	printf("%s\n", a);
 
-    for (i; i < 4; i++) {
-        p1 = a + i;
-        b[i - 1] = *p1 - a[i - 1];
-        sum = sum + b[i - 1] + a[i];
-    }
-    printf("%d", sum);
-
-    return 0;
+	for (int i = 0; a[i] != '\0'; i++) {
+		printf("%c", a[i]);
+	}
 }
 
 // 정보처리기사 기출 문제
-// 22
+//Art
+//A
+//A
+//Art
+//Art
