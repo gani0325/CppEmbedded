@@ -1,23 +1,27 @@
 ﻿#include <stdio.h>
 
-struct jsu {
-    char name[12];
-    int os, db, hab, hhab;
-};
+int len(char* p);
 
 int main() {
-    struct jsu st[3] = { {"데이터1", 95, 88},
-                        {"데이터2", 84, 91},
-                        {"데이터3", 86, 75} };
-    struct jsu* p;
 
-    p = &st[0];
+    char* p1 = "2022";
+    char* p2 = "202207";
 
-    (p + 1)->hab = (p + 1)->os + (p + 2)->db;
-    (p + 1)->hhab = (p + 1)->hab + p->os + p->db;
+    int a = len(p1);
+    int b = len(p2);
 
-    printf("%d\n", (p + 1)->hab + (p + 1)->hhab);
+    printf("%d", a + b);
+
+}
+
+int len(char* p) {
+    int r = 0;
+    while (*p != '\0') {
+        p++;
+        r++;
+    }
+    return r;
 }
 
 // 정보처리기사 기출 문제
-// 501
+// 10
