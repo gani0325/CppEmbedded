@@ -64,31 +64,34 @@ int main()
     write(serial_port, msg, sizeof(msg));
 
     char read_buf[256];
+    char result_buf = 'a';
     // memset(&read_buf, '\0', sizeof(read_buf));
     
     char temp_buf = 'a';
     //memset(&temp_buf, '\0', 1);
     
     while (1) {
-        // while(j != 256) {    
-        //     char num_bytes = read(serial_port, &temp_buf, 1);
-        //     // n is the number of bytes read. n may be 0 if no bytes were received, and can also be -1 to signal an error.
-        //     if (num_bytes < 0)
-        //     {
-        //         printf("Error reading: %s", strerror(errno));
-        //         return 1;
-        //     }
-        //     strlen(read_buf, num_bytes);
-
-        //     j += 1;
-        // }
-        // printf("Read %i bytes. Received message: %c\n", read_buf, temp_buf);
-        // char read_buf[256];
-        // char temp_buf = 'a';
-        // //memset(&read_buf, '\0', sizeof(read_buf));
-        // //memset(&temp_buf, '\0', 1);  
-        char read_buf = read(serial_port, &temp_buf, 1);
-        printf("%c", temp_buf);
+        printf("#########################\n");
+        while(j != 256) {    
+            // n is the number of bytes read. n may be 0 if no bytes were received, and can also be -1 to signal an error.
+            if (temp_buf < 0)
+            {
+                printf("Error reading: %s", strerror(errno));
+                return 1;
+            }
+            
+            char read_buf = read(serial_port, &temp_buf, 1);
+            result_buf += read_buf;
+            printf("%c", temp_buf);
+            j += 1;
+        }
+        
+        char read_buf[256];
+        char result_buf = 'a';
+        char temp_buf = 'a';
+        j = 0;
+        //memset(&read_buf, '\0', sizeof(read_buf));
+        //memset(&temp_buf, '\0', 1);  
     }
 
     close(serial_port);
