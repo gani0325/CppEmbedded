@@ -27,7 +27,7 @@ int main() {
 
         string temp;
         for (int k = 0; k < cnt; k++) {
-            temp.push_back('*');
+            temp.append("*");
         }
         total += cnt;
         cout << char(i+97) << " (" << cnt << ") \t: " << temp << endl;
