@@ -2,6 +2,28 @@
 #include <string>
 using namespace std;
 
+class Container {
+    // 통 하나를 나타내는 클래스
+    int size;           // 현재 저장량, 최대 저장량은 10
+public:
+    Container() {size = 10;}
+    void fill();        // 최대량 (10) 으로 채우기
+    void consume();     // 1 만큼 소모하기
+    int getSize();      // 현재 크기 리턴
+};
+
+void Container::fill() {
+    this->size = 10;
+}
+
+void Container::consume() {
+    this->size -= 1;
+}
+
+int Container::getSize() {
+    return size;
+}
+
 class CoffeeVendingMachine {
     // 커피 자판기
     Container tong[3];          // tong[0] : 커피, tong[1] : 물, tong[2] : 설탕통
@@ -24,10 +46,10 @@ void CoffeeVendingMachine::selectEspresso() {
     tong[0].consume();
     tong[1].consume();
 
-    if (tong[0].getSzie() <= 0) {
+    if (tong[0].getSize() <= 0) {
         cout << "원료가 부족합니다." << endl;
     }
-    else if (tong[1].getSzie() <= 0) {
+    else if (tong[1].getSize() <= 0) {
         cout << "원료가 부족합니다." << endl;
     }
     else {
@@ -40,10 +62,10 @@ void CoffeeVendingMachine::selectAmerican() {
     tong[1].consume();
     tong[1].consume();
 
-    if (tong[0].getSzie() <= 0) {
+    if (tong[0].getSize() <= 0) {
         cout << "원료가 부족합니다." << endl;
     }
-    else if (tong[1].getSzie() <= 0) {
+    else if (tong[1].getSize() <= 0) {
         cout << "원료가 부족합니다." << endl;
     }
     else {
@@ -57,13 +79,13 @@ void CoffeeVendingMachine::selectSugarCoffee() {
     tong[1].consume();
     tong[2].consume();
 
-    if (tong[0].getSzie() <= 0) {
+    if (tong[0].getSize() <= 0) {
         cout << "원료가 부족합니다." << endl;
     }
-    else if (tong[1].getSzie() <= 0) {
+    else if (tong[1].getSize() <= 0) {
         cout << "원료가 부족합니다." << endl;
     }
-    else if (tong[2].getSzie() <= 0) {
+    else if (tong[2].getSize() <= 0) {
         cout << "원료가 부족합니다." << endl;
     }
     else {
@@ -76,61 +98,44 @@ void CoffeeVendingMachine::show() {
 }
 
 void CoffeeVendingMachine::run() {
-    cout << "***** 커피자판기를 작동합니다. *****" << endl;
-    cout << "메뉴를 눌러주세요 (1:에스프레소, 2:아메리카노, 3:설탕커피, 4:잔량보기, 5:채우기)>> ";
-
-    int menu;
-    cin >> menu;
-    
     // 커피, 물, 설탕통
-    tong[3] = {Container(), Container(), Container()};
-    
-    if (menu == 1) {
-        // 커피 1, 물 1 소모
-        selectEspresso();
-    }
-    else if (menu == 2) {
-        // 커피 1, 물 2 소모
-        selectAmerican();
-    }
-    else if (menu == 3) {
-        // 커피 1, 물 2, 설탕 1 소모
-        selectSugarCoffee();
-    }
-    else if (menu == 4) {
-        // 잔량보기
-        show();
-    }
-    else if (menu == 5) {
-        // 채우기
-        fill();
-    }
-}
+    //tong[3] = {Container(), Container(), Container()};
+    tong[0] = Container();
+    tong[1] = Container();
+    tong[2] = Container();
 
-class Container {
-    // 통 하나를 나타내는 클래스
-    int size;           // 현재 저장량, 최대 저장량은 10
-public:
-    Container() {size = 10;}
-    void fill();        // 최대량 (10) 으로 채우기
-    void consume();     // 1 만큼 소모하기
-    int getSize();      // 현재 크기 리턴
-};
+    while (1) {
+        cout << "***** 커피자판기를 작동합니다. *****" << endl;
+        cout << "메뉴를 눌러주세요 (1:에스프레소, 2:아메리카노, 3:설탕커피, 4:잔량보기, 5:채우기)>> ";
 
-void Container::fill() {
-    size = 10;
-}
+        int menu;
+        cin >> menu;
 
-void Container::consume() {
-    size -= 1;
-}
-
-int Container::getSize() {
-    return size;
+        if (menu == 1) {
+            // 커피 1, 물 1 소모
+            selectEspresso();
+        }
+        else if (menu == 2) {
+            // 커피 1, 물 2 소모
+            selectAmerican();
+        }
+        else if (menu == 3) {
+            // 커피 1, 물 2, 설탕 1 소모
+            selectSugarCoffee();
+        }
+        else if (menu == 4) {
+            // 잔량보기
+            show();
+        }
+        else if (menu == 5) {
+            // 채우기
+            fill();
+            show();
+        }
+    }
 }
 
 int main() {
-    while(1) {
-        CoffeeVendingMachine run();
-    }
+    CoffeeVendingMachine machine;
+    machine.run();
 }
