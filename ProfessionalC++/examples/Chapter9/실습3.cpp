@@ -39,15 +39,20 @@ void LoopAdder::run() {
 }
 
 class ForLoopAdder : public LoopAdder {
-int sum = 0;
-protected:
-    ForLoopAdder (string name="") : LoopAdder(string name="") { this->name = name; };
+int sum2 = 0;
 
+public:
+    ForLoopAdder(){}
+    ForLoopAdder (string name="") : LoopAdder(name) { }
+    
     virtual int calculate() {
-        for (int i = x; i = y+1; i++) {
-            sum += i;
+        int x2 = getX();
+        int y2 = getY();
+
+        for (int i = x2; i < y2+1; i++) {
+            sum2 += i;
         }
-        return sum;
+        return sum2;
     };
 };
 
