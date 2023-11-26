@@ -59,6 +59,7 @@ int main()
                 }
 
                 vector<Nation>::iterator it;
+                int flag = 0;
                 // it = find(v.begin(), v.end(), nation);
 
                 for (it = v.begin(); it < v.end(); it++)
@@ -67,98 +68,54 @@ int main()
                     if ((it->nation) == nation)
                     {
                         cout << "already exists !!" << endl;
+                        flag = 1;
                         break;
                     }
-                    else if (it == v.end())
-                    {
-                        cout << (it->nation) << "######" << endl;
-                        v.push_back(Nation(nation, capital));
-                        n++;
-                        int n = v.size();
-                    }
+                }
+
+                if (flag == 0)
+                {
+                    v.push_back(Nation(nation, capital));
+                    n++;
+                    int n = v.size();
                 }
             }
         }
 
         else if (info == 2)
         {
-            int size_ = v.size();
+            while (1)
+            {
+                random_device rd;                                    // 시드 넘버 생성. time처럼 시드 넘버 계속 바뀌게 한다
+                mt19937 mersenne(rd());                              // 랜덤 넘버 생성 알고리즘. mersenne는 알고리즘 이름
+                uniform_int_distribution<int> dist(0, v.size() - 1); // n~m 사이의 수를 랜덤하게 만든다. 단, 각 숫자가 나올 확률은 전부 동일
 
-            cout << size_ << "gg" << endl;
+                auto randNum = dist(mersenne); // 균등하게 랜덤 넘버 생성
+                vector<Nation>::iterator it = v.begin();
 
-            // random_device rd;                                    // 시드 넘버 생성. time처럼 시드 넘버 계속 바뀌게 한다
-            // mt19937 mersenne(rd());                              // 랜덤 넘버 생성 알고리즘. mersenne는 알고리즘 이름
-            // uniform_int_distribution<int> dist(0, v.size() - 1); // n~m 사이의 수를 랜덤하게 만든다. 단, 각 숫자가 나올 확률은 전부 동일
+                cout << (it[randNum]).nation << "의 수도는?";
 
-            // auto randNum = dist(mersenne); // 균등하게 랜덤 넘버 생성
-            // vector<Nation>::iterator it = v.begin();
+                string answer;
+                cin >> answer;
 
-            // cout << (it[randNum]).nation << "의 수도는?";
-
-            // string answer;
-            // getline(cin, answer);
-
-            // if ((it[randNum]).capital == answer)
-            // {
-            //     cout << "Correct !!" << endl;
-            // }
-            // else if (answer == "exit")
-            // {
-            //     break;
-            // }
-            // else
-            // {
-            //     cout << "NO !!" << endl;
-            // }
+                if ((it[randNum]).capital == answer)
+                {
+                    cout << "Correct !!" << endl;
+                }
+                else if (answer == "exit")
+                {
+                    break;
+                }
+                else
+                {
+                    cout << "NO !!" << endl;
+                }
+            }
         }
 
         else if (info == 3)
         {
-            exit;
+            break;
         }
     }
 }
-
-// #include <stdio.h>
-// #include <iostream>
-// #include <vector>
-// #include <random>
-// using namespace std;
-
-// class Scores
-// {
-// public:
-// 	Scores(int score, std::string subject);
-// 	int score;
-// 	std::string subject;
-// };
-
-// Scores::Scores(int score, std::string subject)
-// {
-// 	this->score = score;
-// 	this->subject = subject;
-// }
-
-// int main()
-// {
-
-// 	std::vector<Scores> scores;
-// 	scores.reserve(3);
-
-// 	scores.push_back(Scores(30, "C++"));
-// 	scores.push_back(Scores(40, "JAVA"));
-// 	scores.push_back(Scores(50, "Python"));
-
-//     random_device rd; // 시드 넘버 생성. time처럼 시드 넘버 계속 바뀌게 한다
-//     mt19937 mersenne(rd());  // 랜덤 넘버 생성 알고리즘. mersenne는 알고리즘 이름
-//     uniform_int_distribution<int> dist(0, scores.size()-1); // n~m 사이의 수를 랜덤하게 만든다. 단, 각 숫자가 나올 확률은 전부 동일
-
-//     auto randNum = dist(mersenne);   // 균등하게 랜덤 넘버 생성
-//     // // vector<Nation> :: iterator it = v.begin();
-//     cout << randNum << endl;
-//     cout << scores.size() << endl;
-//     // cout << (*it[randNum])->nation << "의 수도는?";
-// 	std::vector<Scores>::iterator it = scores.begin();
-//     std::cout << (it[randNum]).score << (it[randNum]).subject << std::endl;
-
-// }
