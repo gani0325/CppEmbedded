@@ -22,6 +22,7 @@ public:
 	}
 
 	// NOTE (Nation const &n) -> 위에 사용하고자 하는 get_nation 에도 const 넣어야 함
+    // string get_nation() const
 	string get_nation() const
 	{
 		return this->nation;
@@ -31,10 +32,10 @@ public:
 		return this->capital;
 	}
 
-	bool operator==(const std::string &rhs)
-	{
-		return this->capital == rhs;
-	}
+	// bool operator==(const std::string &rhs)
+	// {
+	// 	return this->capital == rhs;
+	// }
 };
 
 int main()
@@ -75,10 +76,12 @@ int main()
 				}
 
 				// NOTE (Nation const &n) -> 위에 사용하고자 하는 get_nation 에도 const 넣어야 함
-				// auto it = find_if(v.begin(), v.end(), [&](Nation const &n ) { return n.get_nation() == nation; });
+				auto it = find_if(v.begin(), v.end(), [&](Nation const &n )
+									   { return n.get_nation() == nation; });
 
 				// CHECKLIST find_if 가 아닌 find 로는 할 수 없는가?
-				auto it = find(v.begin(), v.end(), nation);
+				//  Nation na("no", "no");
+				//  find(v.begin(), v.end(), na);
 
 				if (it == v.end())
 				{
