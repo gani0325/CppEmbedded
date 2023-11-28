@@ -7,23 +7,32 @@ void setup() {
 
   RTC.begin();
   
-  // RTC의 시작 시간을 설정하려면 일, 월, 연도, 시, 분, 초를 지정하고 요일과 일광 절약 모드를 지정
-  RTCTime startTime(30, Month::JUNE, 2023, 13, 37, 00, DayOfWeek::WEDNESDAY, SaveLight::SAVING_TIME_ACTIVE);
+  RTCTime startTime(28, Month::NOVEMBER, 2023, 13, 37, 00, DayOfWeek::WEDNESDAY, SaveLight::SAVING_TIME_ACTIVE);
 
-  // setTime() : 시간을 설정
   RTC.setTime(startTime);
 }
 
 void loop() {
+  // 시간을 설정하고 가져와서 객체에 저장
   RTCTime currentTime;
 
   // Get current time from RTC
-  // getTime() : 현재 시간을 가져오는 메서드
   RTC.getTime(currentTime);
-  
-  //Unix timestamp
-  Serial.print("Unix timestamp: ");
-  Serial.println(currentTime.getUnixTime());
+
+  // Print out date (DD/MM//YYYY)
+  Serial.print(currentTime.getDayOfMonth());
+  Serial.print("/");
+  Serial.print(Month2int(currentTime.getMonth()));
+  Serial.print("/");
+  Serial.print(currentTime.getYear());
+  Serial.print(" - ");
+
+  // Print time (HH/MM/SS)
+  Serial.print(currentTime.getHour());
+  Serial.print(":");
+  Serial.print(currentTime.getMinutes());
+  Serial.print(":");
+  Serial.println(currentTime.getSeconds());
 
   delay(1000);
 }
