@@ -9,6 +9,11 @@
 #include <string>
 #include <vector>
 #include <iostream>
+
+#include <vector>
+#include <boost/pfr.hpp>
+#include <boost/pfr/core_name.hpp>
+
 using namespace std;
 
 struct NextYear
@@ -62,75 +67,23 @@ int main()
 
     cout << "------------------------------LIFE GOAL------------------------------" << endl;
     // LifeGoal 출력
-    cout << ">> Personal Development" << endl;
-    cout << "ver. next year" << endl;
-    for (int j = 0; j < goal.next.Personal.size(); j++ ) {
-        cout << goal.next.Personal[j] << endl;
-    }
-    cout << "ver. 10 year" << endl;
-    for (int j = 0; j < goal.ten.Personal.size(); j++ ) {
-        cout << goal.ten.Personal[j] << endl;
-    }
 
-    cout << ">> Career" << endl; 
-    cout << "ver. next year" << endl;
-    for (int j = 0; j < goal.next.Career.size(); j++ ) {
-        cout << goal.next.Career[j] << endl;
-    }
-    cout << "ver. 10 year" << endl;
-    for (int j = 0; j < goal.ten.Career.size(); j++ ) {
-        cout << goal.ten.Career[j] << endl;
-    }
+    constexpr auto names = boost::pfr::names_as_array<LifeGoal>();
 
-    cout << ">> Business" << endl; 
-    cout << "ver. next year" << endl;
-    for (int j = 0; j < goal.next.Business.size(); j++ ) {
-        cout << goal.next.Business[j] << endl;
-    }
-    cout << "ver. 10 year" << endl;
-    for (int j = 0; j < goal.ten.Business.size(); j++ ) {
-        cout << goal.ten.Business[j] << endl;
-    }
+    boost::pfr::for_each_field(
+        goal.next,
+        [&names](const auto &fields, std::size_t idx)
+        {
+            // cout << idx << endl;
+            cout << names[idx] << endl;
 
-    cout << ">> Economic" << endl; 
-    cout << "ver. next year" << endl;
-    for (int j = 0; j < goal.next.Economic.size(); j++ ) {
-        cout << goal.next.Economic[j] << endl;
-    }
-    cout << "ver. 10 year" << endl;
-    for (int j = 0; j < goal.ten.Economic.size(); j++ ) {
-        cout << goal.ten.Economic[j] << endl;
-    }
+            for (auto it = fields.begin(); it < fields.end(); ++it)
+            {
+                auto field = *it;
+                cout << "\t" << field << endl;
+            }
+        });
 
-    cout << ">> Toy" << endl; 
-    cout << "ver. next year" << endl;
-    for (int j = 0; j < goal.next.Toy.size(); j++ ) {
-        cout << goal.next.Toy[j] << endl;
-    }
-    cout << "ver. 10 year" << endl;
-    for (int j = 0; j < goal.ten.Toy.size(); j++ ) {
-        cout << goal.ten.Toy[j] << endl;
-    }
-
-    cout << ">> Adventure" << endl; 
-    cout << "ver. next year" << endl;
-    for (int j = 0; j < goal.next.Adventure.size(); j++ ) {
-        cout << goal.next.Adventure[j] << endl;
-    }
-    cout << "ver. 10 year" << endl;
-    for (int j = 0; j < goal.ten.Adventure.size(); j++ ) {
-        cout << goal.ten.Adventure[j] << endl;
-    }
-
-    cout << ">> Contrubution" << endl; 
-    cout << "ver. next year" << endl;
-    for (int j = 0; j < goal.next.Contrubution.size(); j++ ) {
-        cout << goal.next.Contrubution[j] << endl;
-    }
-    cout << "ver. 10 year" << endl;
-    for (int j = 0; j < goal.ten.Contrubution.size(); j++ ) {
-        cout << goal.ten.Contrubution[j] << endl;
-    }
 
     return 0;
 }
