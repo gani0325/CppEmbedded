@@ -4,30 +4,25 @@
 using namespace cv;
 using namespace std;
 
-int main()
-{
-	//비디오 캡처 초기화
-	VideoCapture cap(0);
+int main() {
+	auto cap = VideoCapture(0);
 
-	//카메라가 성공적으로 열렸는지 확인을 위한 조건문
-	if (!cap.isOpened())
-	{
-		printf("Can't open the camera");
-		return -1;
-	}
-
-	//매트릭스 초기화
+	int delay = 33;
 	Mat img;
+	Mat img_gray;
 
-	//비디오 캡처 및 표시:
-	while (1)
-	{
-		cap >> img;
-		imshow("camera img", img); //창에 캡처된 프레임을 표시합니다.
+	while (cap.isOpened()) {
+		if (waitKey(delay) == 27) break;
 
-		if (waitKey(1) == 27)
-			break;
+		auto ret = cap.read(img);
+		cvtColor(img, img_gray, COLOR_BGR2GRAY);
+
+		imshow("Movie1", img);
+		imshow("Movie2", img_gray);
 	}
+
+	cap.release();
+	destroyAllWindows();
 
 	return 0;
 }
