@@ -93,3 +93,7 @@ void error_handling(char *message)
     fputc('\n', stderr);
     exit(EXIT_FAILURE); // -1
 }
+ 
+/*
+https://novice-programmer-story.tistory.com/38
+*/
