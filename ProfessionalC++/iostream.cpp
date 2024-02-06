@@ -23,3 +23,19 @@ struct Student
     double height;
     void ShowStudentInform() { ... }
 };
+
+class Student
+{
+private:
+    int number;
+    char name[NAME_LEN];
+
+public:
+    double height;
+    void ShowStudentInform() { ... }
+};
+
+/*
+클래스는 별도로 접근제어 지시자를 명시하지 않으면, 모든 변수와 함수는 private로 선언된다.
+구조체는 별도로 접근제어 지시자를 명시하지 않으면, 모든 변수와 함수는 public으로 선언된다
+*/
