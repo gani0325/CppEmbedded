@@ -27,3 +27,9 @@ int main()
     // 멤버 함수
     cout << "사각형의 면적은 " << rect.getArea() << endl;
 }
+
+/*
+11:58:45 gani@LOVELY-GANI Chapter3 ±|master ✗|→ g++ -o 3_2 3_2.cpp
+11:58:48 gani@LOVELY-GANI Chapter3 ±|master ✗|→ ./3_2
+사각형의 면적은 15
+*/
