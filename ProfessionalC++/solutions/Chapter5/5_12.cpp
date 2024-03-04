@@ -29,6 +29,16 @@ Person::Person(int id, const char *name)
     strcpy(this->name, name);
 }
 
+// 깊은 복사 생성자 작성
+Person::Person(const Person &person)
+{
+    this->id = person.id;
+    int len = strlen(person.name);
+    this->name = new char[len + 1];
+    strcpy(this->name, person.name);
+    cout << "복사 생성자 실행. 원본 객체의 이름" << this->name << endl;
+}
+
 Person::~Person()
 {
     // name 에 동적 할당된 배열이 있으면 동적 할당 메모리 소멸
